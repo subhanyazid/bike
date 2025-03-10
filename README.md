@@ -1,6 +1,6 @@
 # Dashboard
 
-Streamlit Cloud: <a href='https://bike-sharing.streamlit.app' target='_blank' title='Bike Sharing Dashboard | Streamlit'>Bike Sharing Dashboard</a>
+Streamlit Cloud: <a href='https://belajar-bike.streamlit.app/' target='_blank' title='Bike Dashboard | Streamlit'>Bike Dashboard</a>
 
 ## Description
 
