@@ -20,7 +20,7 @@ Ikuti langkah-langkah berikut:
 
 1. Kloning repo
    ```bash
-   git clone https://github.com/aNdr3W03/Bike-Sharing-Dashboard.git
+   git clone https://github.com/subhanyazid/bike.git
    ```
 
 2. Buat Python Virtual Environment
