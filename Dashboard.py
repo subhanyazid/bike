@@ -116,6 +116,42 @@ with col2:
     
     st.pyplot(fig)
 
+# Pertanyaan 2: Penggunaan berdasarkan hari
+st.subheader("Distribusi Penggunaan Sepeda Berdasarkan Hari (Casual vs Registered)")
+
+# Agregasi
+by_day = main_df.groupby('weekday')[['casual', 'registered']].sum().reset_index()
+fig, ax = plt.subplots(figsize=(10, 6))
+by_day.plot(x='weekday', kind='bar', stacked=True, ax=ax, color=["#FFB74D", "#4FC3F7"])
+
+# Label dan judul
+ax.set_title("Jumlah Pengguna Sepeda per Hari (0=Senin ... 6=Minggu)")
+ax.set_xlabel("Hari")
+ax.set_ylabel("Jumlah Pengguna")
+ax.legend(["Casual", "Registered"])
+
+st.pyplot(fig)
+
+# Pertanyaan 3: Penggunaan berdasarkan jam
+st.subheader("Distribusi Penggunaan Sepeda Berdasarkan Jam")
+
+# Baca ulang data jam-jaman
+hour_df = pd.read_csv("./data/hour.csv")  # pastikan file hour.csv ada di folder yang sama
+hour_df["dteday"] = pd.to_datetime(hour_df["dteday"])
+filtered_hour_df = hour_df[(hour_df["dteday"] >= str(mulai)) & (hour_df["dteday"] <= str(selesai))]
+
+# Agregasi
+by_hour = filtered_hour_df.groupby("hr")["cnt"].sum().reset_index()
+
+fig, ax = plt.subplots(figsize=(10,6))
+sns.lineplot(data=by_hour, x="hr", y="cnt", marker='o', ax=ax, color="#81C784")
+
+ax.set_title("Jumlah Pengguna Sepeda per Jam")
+ax.set_xlabel("Jam (0-23)")
+ax.set_ylabel("Jumlah Pengguna")
+
+st.pyplot(fig)
+
 
 year_now = datetime.date.today().year
 nama = "Ahmad Subhan Yazid"
