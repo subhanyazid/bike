@@ -136,7 +136,7 @@ st.pyplot(fig)
 st.subheader("Distribusi Penggunaan Sepeda Berdasarkan Jam")
 
 # Baca ulang data jam-jaman
-hour_df = pd.read_csv("./data/hour.csv")  # pastikan file hour.csv ada di folder yang sama
+hour_df = pd.read_csv("all_data.csv")  
 hour_df["dteday"] = pd.to_datetime(hour_df["dteday"])
 filtered_hour_df = hour_df[(hour_df["dteday"] >= str(mulai)) & (hour_df["dteday"] <= str(selesai))]
 
